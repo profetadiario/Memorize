@@ -10,15 +10,18 @@ import SwiftUI
 struct ContentView: View {
     let emojis = ["👹","☠️","🤖","👾","🎃","👽","💩","🐒","🐶","🐷","🐸","🦄"]
     @State var cardCount = 4
+    
     var body: some View {
         VStack {
-            cards
-            cardCountAdjusters
-
+            ScrollView{
+                cards
             }
-            .imageScale(.large)
-            .font(.largeTitle)
+            Spacer()
+            cardCountAdjusters
         }
+        .padding()
+    }
+
     func cardCountAdjuster(by offset: Int, symbol: String ) -> some View {
         Button(action: {
             cardCount += offset
